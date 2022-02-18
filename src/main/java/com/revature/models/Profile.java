@@ -39,7 +39,7 @@ public class Profile {
 	@Column(name = "email", columnDefinition = "TEXT", nullable = false, unique = true)
 	private String email;
 	@Column(name = "verification", columnDefinition = "BOOLEAN", nullable = false)
-	private boolean verification = false;
+	private boolean verification = true;
 	@Column(name = "imgurl", columnDefinition = "TEXT")
 	private String imgurl;
 	@Column(name = "following")

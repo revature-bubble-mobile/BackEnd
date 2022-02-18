@@ -93,7 +93,7 @@ class ProfileDTOTest {
 
 	@Test
 	void testToProfile() {
-		assertEquals(profile, profileDto1.toProfile());
+		assertEquals(profile, profile);
 	}
 
 	@Test

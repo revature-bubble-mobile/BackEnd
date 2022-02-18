@@ -93,7 +93,7 @@ public class ProfileDTO {
 		if(groups != null) {
 			groups.forEach(g -> newGroups.add(g.toGroup()));
 		}
-		return new Profile(pid, username, passkey, firstName, lastName, email, verification, imgurl, newFollowing, newGroups);
+		return new Profile(pid, username, passkey, firstName, lastName, email, true, imgurl, newFollowing, newGroups);
 	}
 
 	public ProfileDTO(String username, String passkey, String firstName, String lastName, String email, boolean verification,
