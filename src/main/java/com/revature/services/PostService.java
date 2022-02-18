@@ -4,8 +4,10 @@ import com.revature.models.Post;
 import com.revature.models.Profile;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PostService {
+    Optional<Post> getById(int psid);
     Post addPost(Post post);
 
     List<Post> getAllPostsPaginated(int pageNumber);

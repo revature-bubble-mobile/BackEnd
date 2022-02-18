@@ -21,6 +21,11 @@ public class PostServiceImpl implements PostService {
     @Autowired
     public PostRepo postRepo;
 
+    @Override
+    public Optional<Post> getById(int psid) {
+        return postRepo.findById(psid);
+    }
+
     /**
      * Adds a new post to the database. The date and the creator of the post cannot
      * be null.

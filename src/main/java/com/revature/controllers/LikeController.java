@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.revature.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -98,13 +99,14 @@ public class LikeController {
      *              like was not deleted or a null and ok request if the like was deleted
      */
     @GetMapping
-    public ResponseEntity<Integer> getLike(@RequestHeader PostDTO post, @RequestHeader boolean find, HttpServletRequest req) {
+    public ResponseEntity<Integer> getLike(@RequestHeader int psid, @RequestHeader boolean find, HttpServletRequest req) {
         Profile temp = (Profile) req.getAttribute(PROFILE);
+        Post post = postService.getById(psid).get();
         if (!find) {
-            int result = postService.likeGet(post.toPost());
+            int result = postService.likeGet(post);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } else {
-            Profile exist = postService.likeFindByID(temp, post.toPost());
+            Profile exist = postService.likeFindByID(temp, post);
             if (exist == null) {
                 return new ResponseEntity<>(0, HttpStatus.OK);
             } else {

@@ -22,4 +22,17 @@ spring:
     username: bubbleatrevature@gmail.com
     password: R3Vature!
     port: '587'
-    
+cloud:
+  aws:
+    credentials:
+      access-key: ${AWS_ACCESS_KEY}
+      secret-key: ${AWS_SECRET_ACCESS_KEY}
+
+    region:
+      static: us-east-1
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: ${BUCKET_NAME}
